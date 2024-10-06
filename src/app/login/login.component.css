@@ -111,6 +111,13 @@ mat-card-actions {
     display: flex;
     justify-content: flex-end;
 }
+.text-form{
+        /* align-content: center; */
+        color: #c3001e;
+        /* align-items: center; */
+        text-align: center;
+        font-size: medium;
+}
 @media(max-width:768px) {
     .wrap-login{
         background: #EFEFEF;
@@ -136,6 +143,20 @@ mat-card-actions {
         width: 100%;
     }
 }
+.role-toggle {
+    display: flex;
+    /* justify-content: space-around; */
+    margin-bottom: 20px;
+  }
+  
+ 
+  
+  button.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+
   
   
   

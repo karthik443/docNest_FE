@@ -1,0 +1,25 @@
+<div style="width: 100%; position: relative;">
+  <ul style="list-style-type: none; display: flex; gap: 10px; padding: 0;">
+    <li style="font-size: 18px; font-weight: bold; color: #333; margin: 0;">
+      {{user.userName}}
+    </li>
+    <li style="font-size: 18px; font-weight: bold; color: #333; margin: 0;">
+      {{user.isDoctor ? 'Doctor' : 'Patient'}}
+    </li>
+  </ul>
+    <jqxNavBar #firstNavBar
+      [columns]="columns"
+      [height]="height"
+      [theme]="theme" >
+
+      <ul>
+       
+      
+      <li (click)="navigateTo('/main')">Home</li>
+      <li (click)="navigateTo('/chats')">Chats</li>
+      <li (click)="navigateTo('/profile')">Profile</li>
+      <li (click)="navigateTo('/')">Logout</li>
+      </ul>
+    </jqxNavBar>
+  </div>
+  

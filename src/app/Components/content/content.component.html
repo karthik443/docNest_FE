@@ -1,0 +1,56 @@
+<!-- <mat-form-field appearance="outline" class="search-bar">
+  <mat-label>Search</mat-label>
+  <input matInput placeholder="Search..." [(ngModel)]="searchQuery" (keyup.enter)="search()" />
+  
+</mat-form-field> -->
+
+  <!-- Existing Search Button -->
+  <div class="search-container">
+    <!-- Search Bar and Search Button in one row -->
+    <div class="search-bar-container">
+      <input type="text" [(ngModel)]="searchQuery" [placeholder]="searchPlaceholder" class="search-bar" />
+      <button (click)="search()">Search</button>
+      
+          <label for="sortBy">Sort by:</label>
+          <select id="sortBy" [(ngModel)]="selectedSortOption" (change)="sortResults()">
+            <option value="experience">Work Experience</option>
+            <option value="charge">Charge per Hour</option>
+          </select>
+    <!-- Sort Option and Search Options in one row -->
+
+  
+      <!-- Search Options -->
+      <div class="search-options">
+        <button (click)="setSearchType('name')">Name</button>
+        <button (click)="setSearchType('id')">ID</button>
+        <button (click)="setSearchType('description')">Description</button>
+        <button (click)="setSearchType('specialization')">Specialization</button>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Toggle for Sort Options -->
+  <!-- <div class="sort-options">
+    <label for="sortBy">Sort by:</label>
+    <select id="sortBy" [(ngModel)]="selectedSortOption" (change)="sortResults()">
+      <option value="experience">Work Experience</option>
+      <option value="charge">Charge per Hour</option>
+    </select>
+  </div> -->
+
+
+  <div class="doctor-list">
+    <div *ngFor="let doctor of doctors" class="doctor-card">
+      <h2>{{ doctor.name }}</h2>
+      <h2 *ngIf="doctor.userId!=null && doctor.userId!=undefined"(click)="navigateToChat(doctor.userId, doctor.name)">chat</h2> <!-- Clickable CHAT heading -->
+      <p><strong>ID:</strong> {{ doctor._id }}</p>
+      <p><strong>Specialization:</strong> {{ doctor.specialisation }}</p>
+      <p><strong>Description:</strong> {{ doctor.description }}</p>
+      <p><strong>Work Experience:</strong> {{ doctor.experience }} years</p>
+      <p><strong>Cost per 10 mins:</strong> ${{ doctor.charge }}</p>
+    </div>
+  </div>
+  
+  
+  <p>Im the main contenr</p>

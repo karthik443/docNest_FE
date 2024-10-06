@@ -1,0 +1,82 @@
+.doctor-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-around;
+  }
+  
+  .doctor-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .doctor-card h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #007bff;
+  }
+  
+  .doctor-card p {
+    margin: 8px 0;
+    font-size: 1em;
+  }
+  
+  .doctor-card p strong {
+    font-weight: bold;
+  }
+  .content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .search-bar {
+    width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    text-align: left;
+  }
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .search-bar {
+    width: 300px;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .search-options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .search-options button {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  

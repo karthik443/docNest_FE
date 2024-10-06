@@ -1,0 +1,53 @@
+<div class="profileBody">
+<form [formGroup]="doctorForm" *ngIf="userRole=='doctor'" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" required />
+      <div *ngIf="doctorForm.get('name')?.invalid && doctorForm.get('name')?.touched">
+        Name is required.
+      </div>
+    </div>
+  
+    <div class="form-field">
+      <label for="specialization">Specialization</label>
+      <input id="specialization" type="text" formControlName="specialization" required />
+      <div *ngIf="doctorForm.get('specialization')?.invalid && doctorForm.get('specialization')?.touched">
+        Specialization is required.
+      </div>
+    </div>
+  
+    <div class="form-field">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" required></textarea>
+      <div *ngIf="doctorForm.get('description')?.invalid && doctorForm.get('description')?.touched">
+        Description is required.
+      </div>
+    </div>
+  
+    <div class="form-field">
+      <label for="costPerHour">Cost Per Hour</label>
+      <input id="costPerHour" type="number" formControlName="costPerHour" required />
+      <div *ngIf="doctorForm.get('costPerHour')?.invalid && doctorForm.get('costPerHour')?.touched">
+        Cost per hour is required and must be a positive number.
+      </div>
+    </div>
+  
+    <div class="form-field">
+      <label for="provenExperience">Proven Experience</label>
+      <input id="provenExperience" type="text" formControlName="provenExperience" required />
+      <div *ngIf="doctorForm.get('provenExperience')?.invalid && doctorForm.get('provenExperience')?.touched">
+        Proven experience is required.
+      </div>
+    </div>
+  
+    <div class="form-field">
+      <label for="certificatesProof">Certificates Proof</label>
+      <input id="certificatesProof" type="file" (change)="onFileChange($event)" required />
+      <div *ngIf="doctorForm.get('certificatesProof')?.invalid && doctorForm.get('certificatesProof')?.touched">
+        Certificate proof is required.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="doctorForm.invalid">Submit</button>
+  </form>
+</div>

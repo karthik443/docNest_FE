@@ -1,17 +1,23 @@
 <div class="wrap-login">
     <div class="container">
-        <form class="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+        <form class="" [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="loginPage">
+          <p class="text-form">Login </p>
             <mat-card class="login-box">
                 <mat-card-header>
                     <img mat-card-avatar [src]="logoUrl" alt="Logo">
                 </mat-card-header>
                 <mat-card-content>
-                    <mat-form-field appearance="outline">
+                  <mat-form-field appearance="outline">
+                    <mat-label>user name</mat-label>
+                    <input matInput type="text" placeholder="User Name" formControlName="name" required class="form-field">
+                </mat-form-field>
+                    <!-- <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
                         <input matInput type="email" placeholder="Enter your email" formControlName="email" required class="form-field">
                         <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
                         <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format</mat-error>
-                    </mat-form-field>
+                    </mat-form-field> -->
                 
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
@@ -21,13 +27,51 @@
                     </mat-form-field>
                 </mat-card-content>
                 <mat-card-actions>
+                    <button (click)="changePage()" >SignUp</button>
                     <button mat-raised-button color="primary">Login</button>
                 </mat-card-actions>
             </mat-card>
         </form>
+        
+        <form class="" [formGroup]="signupForm" (ngSubmit)="onSignUp()"  *ngIf="!loginPage">
+          <p class="text-form">Sign Up </p>
+          <mat-card class="login-box">
+              <mat-card-header>
+                  <img mat-card-avatar [src]="'assets/doctor.png'" alt="Logo">
+              </mat-card-header>
+              <mat-card-content>
+                  <mat-form-field appearance="outline">
+                      <mat-label>user name Signup</mat-label>
+                      <input matInput type="text" placeholder="User Name" formControlName="name" required class="form-field">
+                  </mat-form-field>
+              
+                  <mat-form-field appearance="outline">
+                      <mat-label>Password</mat-label>
+                      <input matInput type="password" placeholder="Enter your password" formControlName="password" required class="form-field">
+                      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+                      <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">Password should be at least 6 characters long</mat-error>
+                  </mat-form-field>
+                  <div class="role-toggle">
+                    <button type="button" 
+                      [class.selected]="userRole === 'user'" 
+                      (click)="setRole('user')">User</button>
+                  
+                    <button type="button" 
+                      [class.selected]="userRole === 'doctor'" 
+                      (click)="setRole('doctor')">I'm a Doctor</button>
+                  </div>
+              </mat-card-content>
+              <mat-card-actions>
+                <button  (click)="changePage()">Login</button>
+                  <button mat-raised-button color="primary">Sign Up</button>
+              </mat-card-actions>
+          </mat-card>
+      </form>
     </div>
 </div>
   
+
+
   <!-- <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <mat-card class="login-card">
     <mat-card-header>
